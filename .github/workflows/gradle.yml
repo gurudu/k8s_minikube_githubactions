@@ -39,8 +39,8 @@ jobs:
     - name: Build image
       run: | 
         export SHELL=/bin/bash
-        eval $(minikube -p minikube docker-env)
-        docker build -f ./Dockerfile -t local/java-app:latest .
+        eval $(minikube docker-env)
+        docker build -f ./Dockerfile -t hello-world:0.0.1 .
         echo -n "verifying images"
         docker images
     - name: Deploy to minikube
@@ -49,4 +49,4 @@ jobs:
     - name: Test service URLs
       run: |
         minikube service list
-        minikube service java-app --url           
+        minikube service java-app --url
