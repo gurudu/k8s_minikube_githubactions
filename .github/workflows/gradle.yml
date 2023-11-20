@@ -39,10 +39,10 @@ jobs:
     - name: Build image
       run: | 
         export SHELL=/bin/bash
+        eval $(minikube -p minikube docker-env)
         docker build -f ./Dockerfile -t hello-world:0.0.1 .
         echo -n "verifying images"
         docker images
-        minikube load hello-world:0.0.1
     - name: Deploy to minikube
       run: 
         kubectl apply -f k8s/deployment.yaml
