@@ -13,9 +13,9 @@ spec:
         app: helloworld
     spec:
       containers:
-        - name: java-app
+        - name: demo-java
           imagePullPolicy: Never
-          image: hello-world:0.0.1
+          image: demo-java:0.0.1
           resources:
             limits:
               cpu: 50m

@@ -40,7 +40,7 @@ jobs:
       run: | 
         export SHELL=/bin/bash
         eval $(minikube -p minikube docker-env)
-        docker build -f ./Dockerfile -t hello-world:0.0.1 .
+        docker build -f ./Dockerfile -t demo-java:0.0.1 .
         echo -n "verifying images"
         docker images  
     - name: Deploy to minikube
