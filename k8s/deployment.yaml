@@ -6,7 +6,7 @@ spec:
   replicas: 1
   selector:
       matchLabels:
-       app: hello-world
+       app: helloworld
   template:
     metadata:
       labels:
@@ -34,7 +34,7 @@ metadata:
   namespace: default
 spec:
   selector:
-    app: hello-world
+    app: helloworld
   type: NodePort
   ports:
     - targetPort:  3000
