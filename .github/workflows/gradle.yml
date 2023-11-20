@@ -32,14 +32,14 @@ jobs:
         arguments: build
     - name: start minikube
       id: minikube
-      uses: medyagh/setup-minikube@latest
+      uses: medyagh/setup-minikube@master
       # let's run kubernetes to see the pods
     - name: Try the Cluster!
       run: kubectl get pods -A
     - name: Build image
       run: | 
         export SHELL=/bin/bash
-        eval $(minikube docker-env)
+        eval $(minikube -p minikube docker-env)
         docker build -f ./Dockerfile -t hello-world:0.0.1 .
         echo -n "verifying images"
         docker images
