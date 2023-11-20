@@ -45,8 +45,8 @@ jobs:
         docker images  
     - name: Deploy to minikube
       run: |
-        kubectl get pods 
         kubectl apply -f k8s/deployment.yaml
+        kubectl get pods 
     - name: Test service URLs
       run: |
         minikube service list
