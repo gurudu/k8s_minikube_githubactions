@@ -16,15 +16,9 @@ spec:
         - name: demo-java
           imagePullPolicy: Never
           image: demo-java:0.0.1
-          resources:
-            limits:
-              cpu: 50m
-              memory: 100Mi
-            requests:
-              cpu: 25m
-              memory: 10Mi
+
           ports:
-            - containerPort: 3000
+            - containerPort: 8080
           
 ---
 apiVersion: v1
@@ -37,5 +31,5 @@ spec:
     app: helloworld
   type: NodePort
   ports:
-    - targetPort:  3000
+    - targetPort:  8080
       port: 8080    

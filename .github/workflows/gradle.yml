@@ -39,16 +39,18 @@ jobs:
     - name: Build image
       run: | 
         export SHELL=/bin/bash
-        eval $(minikube -p minikube docker-env)
+        eval $(minikube docker-env)
         docker build -f ./Dockerfile -t demo-java:0.0.1 .
         echo -n "verifying images"
-        docker images  
+        docker images
+
     - name: Deploy to minikube
       run: |
         kubectl apply -f k8s/deployment.yaml
-        kubectl get pods 
     - name: Test service URLs
       run: |
         minikube service list
         kubectl get pods
         minikube service java-app --url
+        echo "------------------opening the service------------------"
+        curl $(minikube service example --url) 
